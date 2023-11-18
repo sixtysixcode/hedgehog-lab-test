@@ -16,15 +16,15 @@ const SignUp = () => {
   } = useForm();
   const submitData = (data: any) => {
     let params = {
-      firstname: data.firstname,
-      lastname: data.lastname,
+      first_name: data.firstname,
+      last_name: data.lastname,
       email: data.email,
       password: data.password,
-      confirmpassword: data.cpassword,
+      password_confirmation: data.cpassword,
     };
     console.log(data);
     axios
-      .post("http://localhost:3000/api/register", params)
+      .post("http://localhost:3002/api/register", params)
       .then(function (response) {
         toast.success("Registration Successful, redirecting...", {
           position: "top-right",

@@ -19,7 +19,7 @@ const Login = () => {
       password: data.password,
     };
     axios
-      .post("http://localhost:3000/api/login", params)
+      .post("http://localhost:3002/api/login", params)
       .then(function (response) {
         //   IF EMAIL ALREADY EXISTS
         if (response.data.success === false) {
