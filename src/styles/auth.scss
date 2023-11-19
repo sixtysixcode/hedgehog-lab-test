@@ -1,6 +1,6 @@
 @use "./utils" as *;
 
-.login {
+.auth {
   display: flex;
   flex-direction: row;
 
@@ -36,7 +36,7 @@
 }
 
 @media screen and (max-width: 1000px) {
-  .login {
+  .auth {
     &__form {
       position: absolute;
       background: $white;

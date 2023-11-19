@@ -4,7 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import loginImage from "../images/login-image.jpg";
-import "../styles/login.scss";
+import "../styles/auth.scss";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -23,6 +23,7 @@ const Login = () => {
     axios
       .post("http://localhost:3002/api/login", params)
       .then(function (response) {
+        console.log("response xxx", response, response.data);
         //   IF EMAIL ALREADY EXISTS
         if (response.data.success === false) {
           toast.error(response.data.message, {
@@ -59,12 +60,12 @@ const Login = () => {
     
   return (
     <>
-      <div className="login">
-        <div className="login__form">
+      <div className="auth">
+        <div className="auth__form">
           <h1>Login</h1>
           <form autoComplete="off" onSubmit={handleSubmit(login)}>
-            <div className="login__form__col">
-              <div className="login__form__row">
+            <div className="auth__form__col">
+              <div className="auth__form__row">
                 <label className="form-label">Email</label>
                 <input
                   type="email"
@@ -74,13 +75,13 @@ const Login = () => {
                 />
               </div>
               {errors.email && (
-                <p className="login__form__error text-danger" style={{ fontSize: 14 }}>
+                <p className="auth__form__error text-danger" style={{ fontSize: 14 }}>
                   {errors.email.message?.toString()}
                 </p>
               )}
             </div>
-            <div className="login__form__col">
-              <div className="login__form__row">
+            <div className="auth__form__col">
+              <div className="auth__form__row">
                 <label className="form-label">Password</label>
                 <input
                   type="password"
@@ -111,7 +112,7 @@ const Login = () => {
           </form>
         </div>
 
-        <div className="login__image">
+        <div className="auth__image">
           <img src={loginImage} alt="Google Deep Mind" />
         </div>
       </div>
