@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
+import loginImage from "../images/login-image.jpg";
+import "../styles/login.scss";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -57,67 +59,63 @@ const Login = () => {
     
   return (
     <>
-      <div className="">
-        <div
-          className=""
-        >
-          <div className="">
-            <div className="">
-              <div className="">
-                <h3 className="">
-                  Login Form
-                </h3>
-                <form autoComplete="off" onSubmit={handleSubmit(login)}>
-                  <div className="">
-                    <label className="form-label">Email</label>
-                    <input
-                      type="email"
-                      className="form-input"
-                      id="exampleFormControlInput1"
-                      {...register("email", { required: "Email is required!" })}
-                    />
-                    {errors.email && (
-                      <p className="text-danger" style={{ fontSize: 14 }}>
-                        {errors.email.message?.toString()}
-                      </p>
-                    )}
-                  </div>
-                  <div className="">
-                    <label className="form-label">Password</label>
-                    <input
-                      type="password"
-                      className="form-input"
-                      id="exampleFormControlInput2"
-                      {...register("password", {
-                        required: "Password is required!",
-                      })}
-                    />
-                    {errors.password && (
-                      <p className="text-danger" style={{ fontSize: 14 }}>
-                        {errors.password.message?.toString()}
-                      </p>
-                    )}
-                  </div>
-                  <div className="">
-                    <button
-                      className=""
-                      type="submit"
-                    >
-                      Submit
-                    </button>
-                    <p className="">
-                      Have an Account?{" "}
-                      <Link style={{ textDecoration: "none" }} to={"/register"}>
-                        Sign Up
-                      </Link>
-                    </p>
-                  </div>
-                </form>
+      <div className="login">
+        <div className="login__form">
+          <h1>Login</h1>
+          <form autoComplete="off" onSubmit={handleSubmit(login)}>
+            <div className="login__form__col">
+              <div className="login__form__row">
+                <label className="form-label">Email</label>
+                <input
+                  type="email"
+                  className="form-input"
+                  id="exampleFormControlInput1"
+                  {...register("email", { required: "Email is required!" })}
+                />
               </div>
+              {errors.email && (
+                <p className="login__form__error text-danger" style={{ fontSize: 14 }}>
+                  {errors.email.message?.toString()}
+                </p>
+              )}
             </div>
-          </div>
+            <div className="login__form__col">
+              <div className="login__form__row">
+                <label className="form-label">Password</label>
+                <input
+                  type="password"
+                  className="form-input"
+                  id="exampleFormControlInput2"
+                  {...register("password", {
+                    required: "Password is required!",
+                  })}
+                />
+              </div>
+              {errors.password && (
+                <p className="text-right text-danger" style={{ fontSize: 14 }}>
+                  {errors.password.message?.toString()}
+                </p>
+              )}
+            </div>
+            <div>
+              <button className="button button-large button-blue" type="submit">
+                Submit
+              </button>
+              <p className="text-right">
+                Don't have an Account?{" "}
+                <Link style={{ textDecoration: "none" }} to={"/register"}>
+                  Sign Up
+                </Link>
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <div className="login__image">
+          <img src={loginImage} alt="Google Deep Mind" />
         </div>
       </div>
+
       <ToastContainer
         position="top-right"
         autoClose={5000}

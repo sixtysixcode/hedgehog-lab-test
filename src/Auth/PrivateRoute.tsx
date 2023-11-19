@@ -11,6 +11,7 @@ export function PrivateRoute({
   authenticationPath,
   outlet,
 }: PrivateRouteProps) {
+  console.log(isAuthenticated);
   if (isAuthenticated) {
     return outlet;
   } else {

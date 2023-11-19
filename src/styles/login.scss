@@ -1,0 +1,51 @@
+@use "./utils" as *;
+
+.login {
+  display: flex;
+  flex-direction: row;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 40%;
+    max-width: 700px;
+    gap: 1rem;
+    padding: 3.5rem;
+
+    &__col {
+      display: flex;
+      flex-direction: column;
+      margin: 2rem 0;
+    }
+
+    &__row {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__image {
+    display: flex;
+    height: 100vh;
+
+    img {
+      object-fit: cover;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .login {
+    &__form {
+      position: absolute;
+      background: $white;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+      border-radius: $boxRadius;
+      width: 90%;
+      max-width: 500px;
+    }
+  }
+}

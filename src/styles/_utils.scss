@@ -1,0 +1,74 @@
+// Use this file for any re-usable components/colours/fonts etc
+
+//COLOURS
+$darkBlue: #0b1117;
+$primaryBlue: #1659ef;
+$mint: #2fe3ab;
+$lightBlue: #48e0fe;
+$white: #fff;
+$red: #eb3f26;
+
+//VARIABLES 
+$boxRadius: 10px;
+
+//CONTAINERS
+
+//BUTTONS
+.button {
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button-large {
+  width: 100%;
+  padding: 0.8rem;
+  font-weight: 600;
+}
+
+.button-blue {
+  background: $primaryBlue;
+  border: $primaryBlue;
+  color: $white;
+}
+
+//INPUTS 
+
+input {
+    border: none;
+    border-bottom: 1px solid #a7a7a7;
+    outline: none;
+    min-width: 60%;
+    height: 2rem;
+    font-size: 16px;
+}
+
+label {
+    line-height: 2rem;
+    font-weight: bold;
+}
+
+//FONTS
+h1,
+h2,
+h3, 
+label, 
+button {
+    font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-danger {
+  color: $red;
+}
