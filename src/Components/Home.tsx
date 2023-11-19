@@ -4,10 +4,11 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
 
-  const login = () => {
+  const logout = () => {
+    localStorage.removeItem("auth");
     navigate("/login");
   };
-    
+
   return (
     <>
       <div>
@@ -15,15 +16,13 @@ const Home = () => {
           <h3 className="">Home</h3>
         </div>
         <div>
-          <button type="submit" className="" onClick={login}>
-            Login
+          <button type="submit" className="" onClick={logout}>
+            Logout
           </button>
         </div>
       </div>
       <div className="">
-        <div
-          className=""
-        >
+        <div className="">
           <p className="">Hello User👋</p>
         </div>
       </div>
