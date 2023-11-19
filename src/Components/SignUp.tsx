@@ -28,7 +28,7 @@ const SignUp = () => {
     axios
       .post("http://localhost:3002/api/register", params)
       .then(function (response) {
-        toast.success("Registration Successful, redirecting...", {
+        toast.success("Registration successful, redirecting...", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: true,
@@ -45,6 +45,16 @@ const SignUp = () => {
       })
       .catch(function (error) {
         console.log(error);
+         toast.error(error.response.data.data.message, {
+           position: "top-right",
+           autoClose: 3000,
+           hideProgressBar: true,
+           closeOnClick: true,
+           pauseOnHover: true,
+           draggable: false,
+           progress: 0,
+           toastId: "my_toast",
+         });
       });
   };
   return (

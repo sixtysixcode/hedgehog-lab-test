@@ -24,7 +24,7 @@ const Login = () => {
       .post("http://localhost:3002/api/login", params)
       .then(function (response) {
         if (response.data?.token) {
-          toast.success("Login Successful, redirecting...", {
+          toast.success("Login successful, redirecting...", {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: true,
