@@ -37,6 +37,10 @@ $boxRadius: 10px;
   background: $primaryBlue;
   border: $primaryBlue;
   color: $white;
+
+  &:hover {
+    background: darken($primaryBlue, 10%);
+  }
 }
 
 //ICONS
