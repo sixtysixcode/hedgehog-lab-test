@@ -144,22 +144,25 @@ const Home = () => {
               {users &&
                 users.map((user: userInterface, id: number) => {
                   return (
-                      <tr key={`user-${id}`}>
-                        <td>{user.id}</td>
-                        <td>
-                          <div className="home__body__image">
-                            <img src={user.display_picture} alt="User" />
-                          </div>
-                        </td>
-                        <td>{user.first_name}</td>
-                        <td>{user.last_name}</td>
-                        <td>{user.email}</td>
-                        <td className="home__body__actions">
-                          <div onClick={() => deleteUser(user.id)}>
-                            <MdDelete className="icon icon-red"  size={25} />
-                          </div>
-                        </td>
-                      </tr>
+                    <tr key={`user-${id}`}>
+                      <td className="bold">{user.id}</td>
+                      <td>
+                        <div className="home__body__image">
+                          <img src={user.display_picture} alt="User" />
+                        </div>
+                      </td>
+                      <td>{user.first_name}</td>
+                      <td>{user.last_name}</td>
+                      <td>{user.email}</td>
+                      <td>
+                        <div
+                          className="home__body__action action-delete"
+                          onClick={() => deleteUser(user.id)}
+                        >
+                          <MdDelete className="icon icon-red" size={25} />
+                        </div>
+                      </td>
+                    </tr>
                   );
                 })}
             </tbody>

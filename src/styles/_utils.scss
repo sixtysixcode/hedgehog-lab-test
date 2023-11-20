@@ -64,17 +64,6 @@ $boxRadius: 10px;
   }
 }
 
-//ICONS
-.icon {
-  cursor: pointer;
-}
-
-.icon-red {
-  &:hover {
-    fill: $red;
-  }
-}
-
 //INPUTS
 input {
   border: none;
@@ -106,6 +95,10 @@ h1 {
 p {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
+}
+
+.bold {
+    font-weight: bold;
 }
 
 .text-right {
