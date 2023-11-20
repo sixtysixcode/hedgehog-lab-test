@@ -1,7 +1,6 @@
 import { ToastContainer, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import "../styles/auth.scss";
-import signupImage from "../images/signup-image.jpg";
 import SignupForm from "./SignupForm";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -64,13 +63,11 @@ const SignUp = () => {
     <>
       <div className="auth">
         <div className="auth__form">
-          <h1 className="">Sign Up Form</h1>
+          <h1 className="">Sign Up</h1>
           <SignupForm onSubmit={submitData} loading={loading} loginLink />
         </div>
 
-        <div className="auth__image">
-          <img src={signupImage} alt="Google Deep Mind" />
-        </div>
+        <div className="auth__image signup-image" />
       </div>
 
       <ToastContainer

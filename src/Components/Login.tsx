@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import loginImage from "../images/login-image.jpg";
 import "../styles/auth.scss";
 import Button from "./Button";
 import { useState } from "react";
@@ -112,9 +111,7 @@ const Login = () => {
           </form>
         </div>
 
-        <div className="auth__image">
-          <img src={loginImage} alt="Google Deep Mind" />
-        </div>
+        <div className="auth__image login-image" />
       </div>
 
       <ToastContainer

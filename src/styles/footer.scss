@@ -1,0 +1,28 @@
+@use "./utils" as *;
+
+.footer {
+  background: $primaryBlue;
+  min-height: 5rem;
+  padding: 1rem;
+  color: $white;
+
+  p {
+    gap: 5px;
+  }
+
+  a {
+    color: $white;
+  }
+
+  svg {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+  svg {
+    font-size: 1rem;
+  }
+}
+}

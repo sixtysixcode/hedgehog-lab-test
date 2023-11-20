@@ -5,6 +5,7 @@ import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { useState, useEffect, useCallback } from "react";
 import { MdDelete } from "react-icons/md";
+import Footer from "./Footer";
 
 interface userInterface {
   id: number;
@@ -154,6 +155,7 @@ const Home = () => {
             </tbody>
           </table>
         </div>
+        <Footer />
       </div>
 
       <ToastContainer
