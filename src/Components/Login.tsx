@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 import "../styles/auth.scss";
 import Button from "./Button";
 import { useState } from "react";
+import hedgehogLogo from "../images/hedgehog-lab-logo.svg";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -62,8 +63,11 @@ const Login = () => {
   return (
     <>
       <div className="auth">
+        <div className="auth__logo">
+          <img src={hedgehogLogo} alt="Hedgehog Labs" />
+        </div>
         <div className="auth__form">
-          <h1>Login</h1>
+          <h1 className="no-margin-btm">Login</h1>
           <form autoComplete="off" onSubmit={handleSubmit(login)}>
             <div className="auth__form__col">
               <div className="auth__form__row">

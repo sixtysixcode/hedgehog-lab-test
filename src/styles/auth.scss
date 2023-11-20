@@ -4,6 +4,20 @@
   display: flex;
   flex-direction: row;
 
+  &__logo {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: $darkBlue;
+    padding: 0.5rem;
+    border-radius: $boxRadius;
+    width: fit-content;
+
+    img {
+      height: 2rem;
+    }
+  }
+
   &__form {
     display: flex;
     flex-direction: column;
@@ -58,6 +72,10 @@
       width: 90%;
       max-width: 500px;
       padding: 2.5rem;
+    }
+
+    &__logo {
+      display: none;
     }
   }
 }
