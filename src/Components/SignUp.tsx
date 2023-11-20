@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import hedgehogLogo from "../images/hedgehog-lab-logo.svg";
+import HedgehogLogo from "./HedgehogLogo";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -63,9 +64,7 @@ const SignUp = () => {
   return (
     <>
       <div className="auth">
-        <div className="logo-container">
-          <img src={hedgehogLogo} alt="Hedgehog Labs" />
-        </div>
+        <HedgehogLogo />
         <div className="auth__form">
           <h1 className="no-margin-btm">Sign Up</h1>
           <SignupForm onSubmit={submitData} loading={loading} loginLink />

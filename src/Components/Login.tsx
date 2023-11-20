@@ -7,6 +7,7 @@ import "../styles/auth.scss";
 import Button from "./Button";
 import { useState } from "react";
 import hedgehogLogo from "../images/hedgehog-lab-logo.svg";
+import HedgehogLogo from "./HedgehogLogo";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -63,9 +64,7 @@ const Login = () => {
   return (
     <>
       <div className="auth">
-        <div className="logo-container">
-          <img src={hedgehogLogo} alt="Hedgehog Labs" />
-        </div>
+       <HedgehogLogo />
         <div className="auth__form">
           <h1 className="no-margin-btm">Login</h1>
           <form autoComplete="off" onSubmit={handleSubmit(login)}>

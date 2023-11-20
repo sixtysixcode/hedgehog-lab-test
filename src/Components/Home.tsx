@@ -6,8 +6,8 @@ import "react-toastify/dist/ReactToastify.min.css";
 import { useState, useEffect, useCallback } from "react";
 import { MdDelete } from "react-icons/md";
 import Footer from "./Footer";
-import hedgehogLogo from "../images/hedgehog-lab-logo.svg";
 import Button from "./Button";
+import HedgehogLogo from "./HedgehogLogo";
 
 interface userInterface {
   id: number;
@@ -108,9 +108,7 @@ const Home = () => {
       <div className="home">
         <div className="inline-row home__header">
           <div className="inline-row home__header-inner">
-            <div className="logo-container">
-              <img src={hedgehogLogo} alt="Hedgehog Labs" />
-            </div>
+            <HedgehogLogo />
             <h1>Home</h1>
           </div>
           <div>
