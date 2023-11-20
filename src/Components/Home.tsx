@@ -62,33 +62,19 @@ const Home = () => {
 
   const fetchUsers = useCallback(
     (data?: any) => {
-      let perPage = 10;
-      let page = 1;
-
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
         },
         params: {
-          per_page: data?.perPage ?? perPage,
-          page: data?.page ?? page,
+          per_page: data?.perPage ?? null,
+          page: data?.page ?? null,
         },
       };
 
       axios
         .get("http://localhost:3002/api/users", config)
         .then(function (response) {
-          console.log("user data", response);
-          toast.success("Users fetched.", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: false,
-            progress: 0,
-            toastId: "my_toast",
-          });
           setUsers(response.data.data);
         })
         .catch(function (error) {
