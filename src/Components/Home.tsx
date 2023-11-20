@@ -7,6 +7,7 @@ import { useState, useEffect, useCallback } from "react";
 import { MdDelete } from "react-icons/md";
 import Footer from "./Footer";
 import hedgehogLogo from "../images/hedgehog-lab-logo.svg";
+import Button from "./Button";
 
 interface userInterface {
   id: number;
@@ -20,9 +21,12 @@ const Home = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("auth");
   const [users, setUsers] = useState<any[]>([]);
+  const [loading, setIsLoading] = useState(false);
 
   const logout = () => {
+    setIsLoading(true);
     localStorage.removeItem("auth");
+    setIsLoading(false);
     navigate("/login");
   };
 
@@ -110,13 +114,7 @@ const Home = () => {
             <h1>Home</h1>
           </div>
           <div>
-            <button
-              type="submit"
-              className="button button-primary"
-              onClick={logout}
-            >
-              Logout
-            </button>
+            <Button onClick={logout} text={"Logout"} loading={loading} />
           </div>
         </div>
 
