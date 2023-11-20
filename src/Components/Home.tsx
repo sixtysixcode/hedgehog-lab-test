@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { useState, useEffect, useCallback } from "react";
+import { MdDelete } from "react-icons/md";
 
 interface userInterface {
   id: number;
@@ -22,6 +23,44 @@ const Home = () => {
     localStorage.removeItem("auth");
     navigate("/login");
   };
+
+  const deleteUser = (id: number) => {
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    }
+       
+      axios
+        .delete(`http://localhost:3002/api/users/${id}`, config)
+        .then(function (response) {
+          console.log("user deleted", response);
+          toast.success("User deleted.", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            progress: 0,
+            toastId: "my_toast",
+          });
+          fetchUsers();
+        })
+        .catch(function (error) {
+          toast.error(error.response.data.data.message, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: false,
+            progress: 0,
+            toastId: "my_toast",
+          });
+        });
+  }
 
   const fetchUsers = useCallback(
     (data?: any) => {
@@ -95,40 +134,53 @@ const Home = () => {
             <thead>
               <tr>
                 <th>ID</th>
+                <th>Display Picture</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
-                <th>Display Picture</th>
                 <th>Actions</th>
               </tr>
             </thead>
 
             <tbody>
               {users &&
-                users.map((user: userInterface) => {
+                users.map((user: userInterface, id: number) => {
                   return (
-                    <>
-                      <tr>
+                      <tr key={`user-${id}`}>
                         <td>{user.id}</td>
-                        <td>{user.first_name}</td>
-                        <td>{user.last_name}</td>
-                        <td>{user.email}</td>
                         <td>
                           <div className="home__body__image">
                             <img src={user.display_picture} alt="User" />
                           </div>
                         </td>
+                        <td>{user.first_name}</td>
+                        <td>{user.last_name}</td>
+                        <td>{user.email}</td>
                         <td className="home__body__actions">
-
+                          <div onClick={() => deleteUser(user.id)}>
+                            <MdDelete size={25} />
+                          </div>
                         </td>
                       </tr>
-                    </>
                   );
                 })}
             </tbody>
           </table>
         </div>
       </div>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover
+        limit={1}
+        transition={Flip}
+      />
     </>
   );
 };
