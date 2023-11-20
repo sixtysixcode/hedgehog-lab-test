@@ -13,7 +13,6 @@ $grey: #a7a7a7;
 $boxRadius: 10px;
 
 //CONTAINERS
-
 .inline-row {
   display: flex;
   flex-direction: row;
@@ -27,19 +26,41 @@ $boxRadius: 10px;
   border-radius: 5px;
   padding: 0.8rem;
   font-weight: 600;
+
+  &:disabled {
+    background: $grey;
+    cursor: not-allowed;
+  }
+
+  &-large {
+    width: 100%;
+  }
+
+  &-primary {
+    background: $primaryBlue;
+    border: $primaryBlue;
+    color: $white;
+
+    &:hover {
+      background: darken($primaryBlue, 10%);
+    }
+  }
 }
 
-.button-large {
-  width: 100%;
+//LOADING SPINNER
+.spinner {
+  animation-name: spin;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
-.button-primary {
-  background: $primaryBlue;
-  border: $primaryBlue;
-  color: $white;
-
-  &:hover {
-    background: darken($primaryBlue, 10%);
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 

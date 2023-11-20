@@ -5,9 +5,12 @@ import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import loginImage from "../images/login-image.jpg";
 import "../styles/auth.scss";
+import Button from "./Button";
+import { useState } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -16,6 +19,8 @@ const Login = () => {
   } = useForm();
     
   const login = (data: any) => {
+    setLoading(true);
+    console.log("loading", loading);
     let params = {
       email: data.email,
       password: data.password,
@@ -36,11 +41,13 @@ const Login = () => {
           });
           localStorage.setItem("auth", response.data.token);
           setTimeout(() => {
+            setLoading(false);
             navigate("/");
           }, 3000);
         }
       })
       .catch(function (error) {
+        setLoading(false);
         toast.error(error.response.data.data.message, {
           position: "top-right",
           autoClose: 3000,
@@ -95,9 +102,7 @@ const Login = () => {
               )}
             </div>
             <div>
-              <button className="button button-large button-primary" type="submit">
-                Submit
-              </button>
+              <Button text={"Login"} loading={loading} />
               <p className="text-right">
                 Don't have an Account?{" "}
                 <Link style={{ textDecoration: "none" }} to={"/register"}>
