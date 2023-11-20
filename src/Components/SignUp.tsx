@@ -158,7 +158,7 @@ const SignUp = () => {
               )}
             </div>
             <div>
-              <button className="button button-large button-blue" type="submit">
+              <button className="button button-large button-primary" type="submit">
                 Submit
               </button>
               <p className="text-right">

@@ -7,25 +7,33 @@ $mint: #2fe3ab;
 $lightBlue: #48e0fe;
 $white: #fff;
 $red: #eb3f26;
+$grey: #a7a7a7;
 
 //VARIABLES 
 $boxRadius: 10px;
 
 //CONTAINERS
 
+.inline-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 //BUTTONS
 .button {
   cursor: pointer;
   border-radius: 5px;
-}
-
-.button-large {
-  width: 100%;
   padding: 0.8rem;
   font-weight: 600;
 }
 
-.button-blue {
+.button-large {
+  width: 100%;
+}
+
+.button-primary {
   background: $primaryBlue;
   border: $primaryBlue;
   color: $white;
@@ -35,7 +43,7 @@ $boxRadius: 10px;
 
 input {
     border: none;
-    border-bottom: 1px solid #a7a7a7;
+    border-bottom: 1px solid $grey;
     outline: none;
     min-width: 60%;
     height: 2rem;
