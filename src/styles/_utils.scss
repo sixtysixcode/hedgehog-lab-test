@@ -20,7 +20,7 @@ $boxRadius: 10px;
   align-items: center;
 }
 
-.logo-div {
+.logo-container {
   top: 1rem;
   left: 1rem;
   background: $darkBlue;
@@ -125,6 +125,13 @@ p {
 
 .text-danger {
   color: $red;
+  margin: 10px 0 0;
+}
+
+@media screen and (max-width: 1000px) {
+     .logo-container {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 600px) {

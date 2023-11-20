@@ -31,7 +31,7 @@ const SignupForm = ({ onSubmit, loading, loginLink }: SignupFormProps) => {
             })}
           />
           {errors.firstname && (
-            <p className="text-danger" style={{ fontSize: 14 }}>
+            <p className="text-danger">
               {errors.firstname.message?.toString()}
             </p>
           )}
@@ -48,12 +48,10 @@ const SignupForm = ({ onSubmit, loading, loginLink }: SignupFormProps) => {
               required: "Lastname is required!",
             })}
           />
-          {errors.lastname && (
-            <p className="text-danger" style={{ fontSize: 14 }}>
-              {errors.lastname.message?.toString()}
-            </p>
-          )}
         </div>
+        {errors.lastname && (
+          <p className="text-danger">{errors.lastname.message?.toString()}</p>
+        )}
       </div>
       <div className="auth__form__col">
         <div className="auth__form__row">
@@ -66,9 +64,7 @@ const SignupForm = ({ onSubmit, loading, loginLink }: SignupFormProps) => {
           />
         </div>
         {errors.email && (
-          <p className="text-danger" style={{ fontSize: 14 }}>
-            {errors.email.message?.toString()}
-          </p>
+          <p className="text-danger">{errors.email.message?.toString()}</p>
         )}
       </div>
       <div className="auth__form__col">
@@ -84,9 +80,7 @@ const SignupForm = ({ onSubmit, loading, loginLink }: SignupFormProps) => {
           />
         </div>
         {errors.password && (
-          <p className="text-danger" style={{ fontSize: 14 }}>
-            {errors.password.message?.toString()}
-          </p>
+          <p className="text-danger">{errors.password.message?.toString()}</p>
         )}
       </div>
       <div className="auth__form__col">
@@ -104,9 +98,7 @@ const SignupForm = ({ onSubmit, loading, loginLink }: SignupFormProps) => {
           />
         </div>
         {errors.cpassword && (
-          <p className="text-danger" style={{ fontSize: 14 }}>
-            {errors.cpassword.message?.toString()}
-          </p>
+          <p className="text-danger">{errors.cpassword.message?.toString()}</p>
         )}
       </div>
       <div>

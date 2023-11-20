@@ -63,7 +63,7 @@ const Login = () => {
   return (
     <>
       <div className="auth">
-        <div className="auth__logo">
+        <div className="logo-container">
           <img src={hedgehogLogo} alt="Hedgehog Labs" />
         </div>
         <div className="auth__form">
@@ -80,7 +80,7 @@ const Login = () => {
                 />
               </div>
               {errors.email && (
-                <p className="auth__form__error text-danger" style={{ fontSize: 14 }}>
+                <p className="auth__form__error text-danger">
                   {errors.email.message?.toString()}
                 </p>
               )}
@@ -98,7 +98,7 @@ const Login = () => {
                 />
               </div>
               {errors.password && (
-                <p className="text-right text-danger" style={{ fontSize: 14 }}>
+                <p className="text-right text-danger">
                   {errors.password.message?.toString()}
                 </p>
               )}

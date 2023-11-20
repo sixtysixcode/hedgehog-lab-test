@@ -104,7 +104,7 @@ const Home = () => {
       <div className="home">
         <div className="inline-row home__header">
           <div className="inline-row home__header-inner">
-            <div className="logo-div">
+            <div className="logo-container">
               <img src={hedgehogLogo} alt="Hedgehog Labs" />
             </div>
             <h1>Home</h1>

@@ -10,6 +10,8 @@ const defaultPrivateRouteProps: Omit<PrivateRouteProps, 'outlet'> = {
 };
 
 function App() {
+
+  console.log("props", defaultPrivateRouteProps);
   return (
     <BrowserRouter>
       <Routes>
