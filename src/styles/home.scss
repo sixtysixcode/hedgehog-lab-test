@@ -3,6 +3,10 @@
 .home {
   &__header {
     padding: 1rem;
+
+    &-inner {
+    gap: 1rem;
+    }
   }
 
   &__body {

@@ -20,6 +20,19 @@ $boxRadius: 10px;
   align-items: center;
 }
 
+.logo-div {
+  top: 1rem;
+  left: 1rem;
+  background: $darkBlue;
+  padding: 0.5rem;
+  border-radius: $boxRadius;
+  width: fit-content;
+
+  img {
+    height: 2rem;
+  }
+}
+
 //BUTTONS
 .button {
   cursor: pointer;
@@ -99,7 +112,7 @@ p {
 }
 
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .text-right {
@@ -107,9 +120,15 @@ p {
 }
 
 .no-margin-btm {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .text-danger {
   color: $red;
+}
+
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+    }
 }

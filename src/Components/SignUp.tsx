@@ -63,7 +63,7 @@ const SignUp = () => {
   return (
     <>
       <div className="auth">
-        <div className="auth__logo">
+        <div className="logo-div">
           <img src={hedgehogLogo} alt="Hedgehog Labs" />
         </div>
         <div className="auth__form">
