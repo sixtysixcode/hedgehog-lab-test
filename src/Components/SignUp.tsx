@@ -5,9 +5,12 @@ import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import "../styles/auth.scss";
 import signupImage from "../images/signup-image.jpg";
+import Button from "./Button";
+import { useState } from "react";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -17,6 +20,7 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
   const submitData = (data: any) => {
+    setLoading(true);
     let params = {
       first_name: data.firstname,
       last_name: data.lastname,
@@ -40,21 +44,23 @@ const SignUp = () => {
         });
         reset();
         setTimeout(() => {
+          setLoading(false);
           navigate("/login");
         }, 3000);
       })
       .catch(function (error) {
         console.log(error);
-         toast.error(error.response.data.data.message, {
-           position: "top-right",
-           autoClose: 3000,
-           hideProgressBar: true,
-           closeOnClick: true,
-           pauseOnHover: true,
-           draggable: false,
-           progress: 0,
-           toastId: "my_toast",
-         });
+        setLoading(false);
+        toast.error(error.response.data.data.message, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: 0,
+          toastId: "my_toast",
+        });
       });
   };
   return (
@@ -158,9 +164,7 @@ const SignUp = () => {
               )}
             </div>
             <div>
-              <button className="button button-large button-primary" type="submit">
-                Submit
-              </button>
+              <Button text={"Submit"} loading={loading} />
               <p className="text-right">
                 Already have an account?{" "}
                 <Link style={{ textDecoration: "none" }} to={"/login"}>

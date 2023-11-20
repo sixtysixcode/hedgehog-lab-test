@@ -20,7 +20,6 @@ const Login = () => {
     
   const login = (data: any) => {
     setLoading(true);
-    console.log("loading", loading);
     let params = {
       email: data.email,
       password: data.password,
