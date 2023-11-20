@@ -158,7 +158,7 @@ const Home = () => {
                         <td>{user.email}</td>
                         <td className="home__body__actions">
                           <div onClick={() => deleteUser(user.id)}>
-                            <MdDelete size={25} />
+                            <MdDelete className="icon icon-red"  size={25} />
                           </div>
                         </td>
                       </tr>
