@@ -25,13 +25,11 @@ const Home = () => {
   };
 
   const deleteUser = (id: number) => {
-
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
       }
-    }
-       
+    }  
       axios
         .delete(`http://localhost:3002/api/users/${id}`, config)
         .then(function (response) {
