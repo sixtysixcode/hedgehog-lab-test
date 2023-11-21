@@ -41,11 +41,10 @@ const Login = () => {
             toastId: "my_toast",
           });
           localStorage.setItem("auth", response.data.token);
-          console.log("local store", localStorage.getItem("auth"));
           setTimeout(() => {
             setLoading(false);
             navigate("/");
-          }, 4000);
+          }, 2000);
         }
       })
       .catch(function (error) {
