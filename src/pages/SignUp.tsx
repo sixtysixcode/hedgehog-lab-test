@@ -26,7 +26,6 @@ const SignUp = () => {
       password: data.password,
       password_confirmation: data.cpassword,
     };
-    console.log(data);
     axios
       .post("http://localhost:3002/api/register", params)
       .then(function (response) {
@@ -47,7 +46,6 @@ const SignUp = () => {
         }, 3000);
       })
       .catch(function (error) {
-        console.log(error);
         setLoading(false);
         toast.error(error.response.data.data.message, {
           position: "top-right",

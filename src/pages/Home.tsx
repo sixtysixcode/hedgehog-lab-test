@@ -53,7 +53,6 @@ const Home = () => {
       password: data.password,
       password_confirmation: data.cpassword,
     };
-    console.log(data);
     axios
       .post("http://localhost:3002/api/register", params)
       .then(function (response) {
@@ -75,7 +74,6 @@ const Home = () => {
         }, 3000);
       })
       .catch(function (error) {
-        console.log(error);
         setLoading(false);
         toast.error(error.response.data.data.message, {
           position: "top-right",
@@ -99,7 +97,6 @@ const Home = () => {
     axios
       .delete(`http://localhost:3002/api/users/${id}`, config)
       .then(function (response) {
-        console.log("user deleted", response);
         toast.success("User deleted.", {
           position: "top-right",
           autoClose: 3000,
