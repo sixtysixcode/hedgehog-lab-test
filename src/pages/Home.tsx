@@ -8,21 +8,13 @@ import Button from "../Components/Button";
 import { FaWindowClose } from "react-icons/fa";
 import Footer from "../Components/Footer";
 import HedgehogLogo from "../Components/HedgehogLogo";
-import { MdDelete } from "react-icons/md";
 import Modal from "react-modal";
 import Pagination from "../Components/Pagination";
 import SignupForm from "../Components/SignupForm";
+import UserTable from "../Components/UserTable";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
-interface userInterface {
-  id: number;
-  first_name: string;
-  last_name: string;
-  email: string;
-  display_picture: string;
-}
 
 Modal.setAppElement("#root");
 
@@ -178,45 +170,7 @@ const Home = () => {
           <div className="home__body__header">
             <Button text={"Add User"} onClick={() => setModalOpen(true)} />
           </div>
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Display Picture</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {users &&
-                users.map((user: userInterface, id: number) => {
-                  return (
-                    <tr key={`user-${id}`}>
-                      <td className="bold">{user.id}</td>
-                      <td>
-                        <div className="home__body__image">
-                          <img src={user.display_picture} alt="User" />
-                        </div>
-                      </td>
-                      <td>{user.first_name}</td>
-                      <td>{user.last_name}</td>
-                      <td>{user.email}</td>
-                      <td>
-                        <div
-                          className="icon square-icon icon-delete"
-                          onClick={() => deleteUser(user.id)}
-                        >
-                          <MdDelete size={25} />
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
+          <UserTable users={users} deleteUser={deleteUser} />
         </div>
         <Pagination
           pages={numberOfPages}
