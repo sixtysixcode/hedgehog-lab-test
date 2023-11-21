@@ -3,8 +3,8 @@ import "../styles/auth.scss";
 
 import { Flip, ToastContainer } from "react-toastify";
 
-import HedgehogLogo from "./HedgehogLogo";
-import SignupForm from "./SignupForm";
+import HedgehogLogo from "../Components/HedgehogLogo";
+import SignupForm from "../Components/SignupForm";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";

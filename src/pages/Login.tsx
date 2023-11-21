@@ -4,8 +4,8 @@ import "../styles/auth.scss";
 import { Flip, ToastContainer, toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 
-import Button from "./Button";
-import HedgehogLogo from "./HedgehogLogo";
+import Button from "../Components/Button";
+import HedgehogLogo from "../Components/HedgehogLogo";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
