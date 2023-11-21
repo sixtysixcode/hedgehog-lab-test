@@ -110,7 +110,7 @@ const Home = () => {
           progress: 0,
           toastId: "my_toast",
         });
-        fetchUsers();
+        fetchUsers({ page: currentPage });
       })
       .catch(function (error) {
         toast.error(error.response.data.data.message, {
