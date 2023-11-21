@@ -6,12 +6,10 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 
 const defaultPrivateRouteProps: Omit<PrivateRouteProps, "outlet"> = {
-  isAuthenticated: !!localStorage.getItem("auth"),
   authenticationPath: "/login",
 };
 
 function App() {
-  console.log("props", defaultPrivateRouteProps);
   return (
     <BrowserRouter>
       <Routes>

@@ -1,16 +1,15 @@
 import { Navigate } from "react-router-dom";
 
 export type PrivateRouteProps = {
-  isAuthenticated: boolean;
   authenticationPath: string;
   outlet: JSX.Element;
 };
 
 export function PrivateRoute({
-  isAuthenticated,
   authenticationPath,
   outlet,
 }: PrivateRouteProps) {
+  const isAuthenticated = localStorage.getItem("auth");
   if (isAuthenticated) {
     return outlet;
   } else {
