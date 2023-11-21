@@ -30,9 +30,7 @@ const Home = () => {
   const { reset } = useForm();
 
   const logout = () => {
-    setLoading(true);
     localStorage.removeItem("auth");
-    setLoading(false);
     navigate("/login");
   };
 
