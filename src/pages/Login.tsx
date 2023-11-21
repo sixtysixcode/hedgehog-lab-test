@@ -2,23 +2,16 @@ import "react-toastify/dist/ReactToastify.min.css";
 import "../styles/auth.scss";
 
 import { Flip, ToastContainer, toast } from "react-toastify";
-import { Link, useNavigate } from "react-router-dom";
 
-import Button from "../Components/Button";
 import HedgehogLogo from "../Components/HedgehogLogo";
+import LoginForm from "../Components/LoginForm";
 import axios from "axios";
-import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
 
   const login = (data: any) => {
     setLoading(true);
@@ -68,51 +61,7 @@ const Login = () => {
         <HedgehogLogo />
         <div className="auth__form">
           <h1 className="no-margin-btm">Login</h1>
-          <form autoComplete="off" onSubmit={handleSubmit(login)}>
-            <div className="auth__form__col">
-              <div className="auth__form__row">
-                <label className="form-label">Email</label>
-                <input
-                  type="email"
-                  className="form-input"
-                  id="exampleFormControlInput1"
-                  {...register("email", { required: "Email is required!" })}
-                />
-              </div>
-              {errors.email && (
-                <p className="auth__form__error text-danger">
-                  {errors.email.message?.toString()}
-                </p>
-              )}
-            </div>
-            <div className="auth__form__col">
-              <div className="auth__form__row">
-                <label className="form-label">Password</label>
-                <input
-                  type="password"
-                  className="form-input"
-                  id="exampleFormControlInput2"
-                  {...register("password", {
-                    required: "Password is required!",
-                  })}
-                />
-              </div>
-              {errors.password && (
-                <p className="text-right text-danger">
-                  {errors.password.message?.toString()}
-                </p>
-              )}
-            </div>
-            <div>
-              <Button text={"Login"} loading={loading} large />
-              <p className="text-right">
-                Don't have an Account?{" "}
-                <Link style={{ textDecoration: "none" }} to={"/register"}>
-                  Sign Up
-                </Link>
-              </p>
-            </div>
-          </form>
+          <LoginForm onSubmit={login} loading={loading} />
         </div>
 
         <div className="auth__image login-image" />
