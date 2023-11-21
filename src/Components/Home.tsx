@@ -8,6 +8,9 @@ import { MdDelete } from "react-icons/md";
 import Footer from "./Footer";
 import Button from "./Button";
 import HedgehogLogo from "./HedgehogLogo";
+import Modal from 'react-modal';
+import SignupForm from "./SignupForm";
+import { useForm } from "react-hook-form";
 
 interface userInterface {
   id: number;
@@ -17,18 +20,67 @@ interface userInterface {
   display_picture: string;
 }
 
+Modal.setAppElement("#root");
+
 const Home = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("auth");
   const [users, setUsers] = useState<any[]>([]);
-  const [loading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const { reset } = useForm();
 
   const logout = () => {
-    setIsLoading(true);
+    setLoading(true);
     localStorage.removeItem("auth");
-    setIsLoading(false);
+    setLoading(false);
     navigate("/login");
   };
+
+   const submitData = (data: any) => {
+     setLoading(true);
+     let params = {
+       first_name: data.firstname,
+       last_name: data.lastname,
+       email: data.email,
+       password: data.password,
+       password_confirmation: data.cpassword,
+     };
+     console.log(data);
+     axios
+       .post("http://localhost:3002/api/register", params)
+       .then(function (response) {
+         toast.success("Registration successful, redirecting...", {
+           position: "top-right",
+           autoClose: 3000,
+           hideProgressBar: true,
+           closeOnClick: true,
+           pauseOnHover: true,
+           draggable: false,
+           progress: 0,
+           toastId: "my_toast",
+         });
+         reset();
+         setLoading(false);
+         setModalOpen(false);
+         fetchUsers();
+       })
+       .catch(function (error) {
+         console.log(error);
+         setLoading(false);
+         toast.error(error.response.data.data.message, {
+           position: "top-right",
+           autoClose: 3000,
+           hideProgressBar: true,
+           closeOnClick: true,
+           pauseOnHover: true,
+           draggable: false,
+           progress: 0,
+           toastId: "my_toast",
+         });
+       });
+   };
 
   const deleteUser = (id: number) => {
     const config = {
@@ -117,6 +169,9 @@ const Home = () => {
         </div>
 
         <div className="home__body">
+          <div className="home__body__header">
+            <Button text={"Add User"} onClick={() => setModalOpen(true)} />
+          </div>
           <table>
             <thead>
               <tr>
@@ -159,6 +214,16 @@ const Home = () => {
         </div>
         <Footer />
       </div>
+
+      <Modal
+        isOpen={modalOpen}
+        onRequestClose={() => setModalOpen(false)}
+        contentLabel="Add New User"
+        className={"home__modal"}
+      >
+        <h2>Add User</h2>
+        <SignupForm onSubmit={submitData} loading={loading} />
+      </Modal>
 
       <ToastContainer
         position="top-right"

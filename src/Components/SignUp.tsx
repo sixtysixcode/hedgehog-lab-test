@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import hedgehogLogo from "../images/hedgehog-lab-logo.svg";
 import HedgehogLogo from "./HedgehogLogo";
 
 const SignUp = () => {

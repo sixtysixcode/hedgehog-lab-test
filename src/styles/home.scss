@@ -12,6 +12,14 @@
   &__body {
     padding: 2rem;
     overflow-x: auto;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    &__header {
+      display: flex;
+      justify-content: flex-end;
+    }
 
     &__image {
       border-radius: 50%;
@@ -28,10 +36,9 @@
     }
 
     table {
-      width: 100%;
-      max-width: 1000px;
       margin: 2rem auto;
       border-collapse: collapse;
+      width: 100%;
 
       thead {
         background: lighten($grey, 30%);
@@ -84,5 +91,18 @@
             }
         }
     }
+  }
+
+  &__modal {
+    max-width: 600px;
+    width: 100%;
+    padding: 3rem;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: $white;
+    border-radius: $boxRadius;
   }
 }

@@ -6,7 +6,7 @@ import "../styles/auth.scss";
 interface SignupFormProps {
   onSubmit: (data: any) => void;
     loading: boolean;
-    loginLink: boolean;
+    loginLink?: boolean;
 }
 
 const SignupForm = ({ onSubmit, loading, loginLink }: SignupFormProps) => {
@@ -21,7 +21,7 @@ const SignupForm = ({ onSubmit, loading, loginLink }: SignupFormProps) => {
     <form className="" autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
       <div className="auth__form__col">
         <div className="auth__form__row">
-          <label className="form-label">Firstname</label>
+          <label className="form-label">First Name</label>
           <input
             type="text"
             className="form-input"
@@ -39,7 +39,7 @@ const SignupForm = ({ onSubmit, loading, loginLink }: SignupFormProps) => {
       </div>
       <div className="auth__form__col">
         <div className="auth__form__row">
-          <label className="form-label">Lastname</label>
+          <label className="form-label">Last Name</label>
           <input
             type="text"
             className="form-input"
@@ -102,7 +102,7 @@ const SignupForm = ({ onSubmit, loading, loginLink }: SignupFormProps) => {
         )}
       </div>
       <div>
-        <Button text={"Submit"} loading={loading} />
+        <Button text={"Submit"} loading={loading} large />
         {loginLink && (
           <p className="text-right">
             Already have an account?{" "}

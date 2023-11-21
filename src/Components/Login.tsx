@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.min.css";
 import "../styles/auth.scss";
 import Button from "./Button";
 import { useState } from "react";
-import hedgehogLogo from "../images/hedgehog-lab-logo.svg";
 import HedgehogLogo from "./HedgehogLogo";
 
 const Login = () => {
@@ -103,7 +102,7 @@ const Login = () => {
               )}
             </div>
             <div>
-              <Button text={"Login"} loading={loading} />
+              <Button text={"Login"} loading={loading} large />
               <p className="text-right">
                 Don't have an Account?{" "}
                 <Link style={{ textDecoration: "none" }} to={"/register"}>
