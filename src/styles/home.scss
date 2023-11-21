@@ -5,7 +5,7 @@
     padding: 1rem;
 
     &-inner {
-    gap: 1rem;
+      gap: 1rem;
     }
   }
 
@@ -44,11 +44,12 @@
         background: lighten($grey, 30%);
 
         th {
-            height: 80px;
+          height: 80px;
         }
       }
 
-      th, td {
+      th,
+      td {
         padding: 15px;
       }
 
@@ -68,29 +69,6 @@
         background: lighten($grey, 30%);
       }
     }
-
-    &__action {
-        padding: 0.5rem;
-        width: fit-content;
-        border-radius: 2px;
-        cursor: pointer;
-
-        &.action-delete {
-            background: lighten($red, 40%);
-
-            svg {
-                fill: lighten($red, 20%);
-            }
-
-            &:hover {
-                background: lighten($red, 30%);
-
-                svg {
-                   fill: lighten($red, 10%); 
-                }
-            }
-        }
-    }
   }
 
   &__modal {
@@ -98,7 +76,7 @@
     width: 100%;
     padding: 3rem;
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
-    position:absolute;
+    position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);

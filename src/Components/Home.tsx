@@ -11,6 +11,7 @@ import HedgehogLogo from "./HedgehogLogo";
 import Modal from 'react-modal';
 import SignupForm from "./SignupForm";
 import { useForm } from "react-hook-form";
+import { FaWindowClose } from "react-icons/fa";
 
 interface userInterface {
   id: number;
@@ -200,10 +201,10 @@ const Home = () => {
                       <td>{user.email}</td>
                       <td>
                         <div
-                          className="home__body__action action-delete"
+                          className="icon square-icon icon-delete"
                           onClick={() => deleteUser(user.id)}
                         >
-                          <MdDelete className="icon icon-red" size={25} />
+                          <MdDelete size={25} />
                         </div>
                       </td>
                     </tr>
@@ -221,6 +222,9 @@ const Home = () => {
         contentLabel="Add New User"
         className={"home__modal"}
       >
+        <div className="icon icon-close" onClick={() => setModalOpen(false)}>
+          <FaWindowClose />
+        </div>
         <h2>Add User</h2>
         <SignupForm onSubmit={submitData} loading={loading} />
       </Modal>

@@ -61,6 +61,58 @@ $boxRadius: 10px;
   }
 }
 
+//ICONS
+
+.icon {
+  cursor: pointer;  
+
+  svg {
+    display: block;
+  }
+}
+
+.square-icon {
+  padding: 0.5rem;
+  width: fit-content;
+  border-radius: 2px;
+}
+
+.icon-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: lighten($grey, 20%);
+  }
+
+  &:hover {
+    background: lighten($grey, 30%);
+
+    svg {
+      fill: lighten($grey, 10%);
+    }
+  }
+}
+
+.icon-delete {
+  background: lighten($red, 40%);
+
+  svg {
+    fill: lighten($red, 20%);
+  }
+
+  &:hover {
+    background: lighten($red, 30%);
+
+    svg {
+      fill: lighten($red, 10%);
+    }
+  }
+}
+
 //LOADING SPINNER
 .spinner {
   animation-name: spin;
@@ -130,13 +182,13 @@ p {
 }
 
 @media screen and (max-width: 1000px) {
-     .logo-container {
-        display: none;
-    }
+  .logo-container {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    h1 {
-        font-size: 1.5rem;
-    }
+  h1 {
+    font-size: 1.5rem;
+  }
 }
