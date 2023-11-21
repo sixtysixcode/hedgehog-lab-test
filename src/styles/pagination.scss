@@ -1,0 +1,25 @@
+@use "./utils" as *;
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+
+  &__element {
+    min-width: 2rem;
+    min-height: 2rem;
+    text-align: center;
+
+    &:hover {
+      background: lighten($grey, 30%);
+    }
+
+    &.active {
+      background: $primaryBlue;
+      color: $white;
+    }
+  }
+}

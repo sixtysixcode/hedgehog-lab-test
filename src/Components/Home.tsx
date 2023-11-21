@@ -10,6 +10,7 @@ import Footer from "./Footer";
 import HedgehogLogo from "./HedgehogLogo";
 import { MdDelete } from "react-icons/md";
 import Modal from "react-modal";
+import Pagination from "./Pagination";
 import SignupForm from "./SignupForm";
 import axios from "axios";
 import { useForm } from "react-hook-form";
@@ -29,6 +30,8 @@ const Home = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("auth");
   const [users, setUsers] = useState<any[]>([]);
+  const [numberOfPages, setNumberOfPages] = useState<number>(1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [loading, setLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -41,7 +44,7 @@ const Home = () => {
     navigate("/login");
   };
 
-  const submitData = (data: any) => {
+  const createUser = (data: any) => {
     setLoading(true);
     let params = {
       first_name: data.firstname,
@@ -54,7 +57,7 @@ const Home = () => {
     axios
       .post("http://localhost:3002/api/register", params)
       .then(function (response) {
-        toast.success("Registration successful, redirecting...", {
+        toast.success("Registration successful.", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: true,
@@ -65,9 +68,11 @@ const Home = () => {
           toastId: "my_toast",
         });
         reset();
-        setLoading(false);
-        setModalOpen(false);
-        fetchUsers();
+        fetchUsers({ page: currentPage });
+        setTimeout(() => {
+          setLoading(false);
+          setModalOpen(false);
+        }, 3000);
       })
       .catch(function (error) {
         console.log(error);
@@ -137,6 +142,7 @@ const Home = () => {
         .get("http://localhost:3002/api/users", config)
         .then(function (response) {
           setUsers(response.data.data);
+          setNumberOfPages(response.data.total_pages);
         })
         .catch(function (error) {
           toast.error(error.response.data.data.message, {
@@ -155,7 +161,7 @@ const Home = () => {
   );
 
   useEffect(() => {
-    fetchUsers();
+    fetchUsers({ page: 1 });
   }, [fetchUsers]);
 
   return (
@@ -215,6 +221,12 @@ const Home = () => {
             </tbody>
           </table>
         </div>
+        <Pagination
+          pages={numberOfPages}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+          fetchUsers={fetchUsers}
+        />
         <Footer />
       </div>
 
@@ -228,7 +240,7 @@ const Home = () => {
           <FaWindowClose />
         </div>
         <h2>Add User</h2>
-        <SignupForm onSubmit={submitData} loading={loading} />
+        <SignupForm onSubmit={createUser} loading={loading} />
       </Modal>
 
       <ToastContainer
