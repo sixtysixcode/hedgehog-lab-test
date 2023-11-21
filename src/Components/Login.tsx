@@ -1,12 +1,14 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import axios from "axios";
-import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import "../styles/auth.scss";
+
+import { Flip, ToastContainer, toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+
 import Button from "./Button";
-import { useState } from "react";
 import HedgehogLogo from "./HedgehogLogo";
+import axios from "axios";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-    
+
   const login = (data: any) => {
     setLoading(true);
     let params = {
@@ -59,11 +61,11 @@ const Login = () => {
         });
       });
   };
-    
+
   return (
     <>
       <div className="auth">
-       <HedgehogLogo />
+        <HedgehogLogo />
         <div className="auth__form">
           <h1 className="no-margin-btm">Login</h1>
           <form autoComplete="off" onSubmit={handleSubmit(login)}>

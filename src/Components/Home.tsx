@@ -1,17 +1,19 @@
 import "../styles/home.scss";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import { useState, useEffect, useCallback } from "react";
-import { MdDelete } from "react-icons/md";
-import Footer from "./Footer";
+
+import { Flip, ToastContainer, toast } from "react-toastify";
+import { useCallback, useEffect, useState } from "react";
+
 import Button from "./Button";
-import HedgehogLogo from "./HedgehogLogo";
-import Modal from 'react-modal';
-import SignupForm from "./SignupForm";
-import { useForm } from "react-hook-form";
 import { FaWindowClose } from "react-icons/fa";
+import Footer from "./Footer";
+import HedgehogLogo from "./HedgehogLogo";
+import { MdDelete } from "react-icons/md";
+import Modal from "react-modal";
+import SignupForm from "./SignupForm";
+import axios from "axios";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 interface userInterface {
   id: number;
@@ -39,85 +41,85 @@ const Home = () => {
     navigate("/login");
   };
 
-   const submitData = (data: any) => {
-     setLoading(true);
-     let params = {
-       first_name: data.firstname,
-       last_name: data.lastname,
-       email: data.email,
-       password: data.password,
-       password_confirmation: data.cpassword,
-     };
-     console.log(data);
-     axios
-       .post("http://localhost:3002/api/register", params)
-       .then(function (response) {
-         toast.success("Registration successful, redirecting...", {
-           position: "top-right",
-           autoClose: 3000,
-           hideProgressBar: true,
-           closeOnClick: true,
-           pauseOnHover: true,
-           draggable: false,
-           progress: 0,
-           toastId: "my_toast",
-         });
-         reset();
-         setLoading(false);
-         setModalOpen(false);
-         fetchUsers();
-       })
-       .catch(function (error) {
-         console.log(error);
-         setLoading(false);
-         toast.error(error.response.data.data.message, {
-           position: "top-right",
-           autoClose: 3000,
-           hideProgressBar: true,
-           closeOnClick: true,
-           pauseOnHover: true,
-           draggable: false,
-           progress: 0,
-           toastId: "my_toast",
-         });
-       });
-   };
+  const submitData = (data: any) => {
+    setLoading(true);
+    let params = {
+      first_name: data.firstname,
+      last_name: data.lastname,
+      email: data.email,
+      password: data.password,
+      password_confirmation: data.cpassword,
+    };
+    console.log(data);
+    axios
+      .post("http://localhost:3002/api/register", params)
+      .then(function (response) {
+        toast.success("Registration successful, redirecting...", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: 0,
+          toastId: "my_toast",
+        });
+        reset();
+        setLoading(false);
+        setModalOpen(false);
+        fetchUsers();
+      })
+      .catch(function (error) {
+        console.log(error);
+        setLoading(false);
+        toast.error(error.response.data.data.message, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: 0,
+          toastId: "my_toast",
+        });
+      });
+  };
 
   const deleteUser = (id: number) => {
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
-      }
-    }  
-      axios
-        .delete(`http://localhost:3002/api/users/${id}`, config)
-        .then(function (response) {
-          console.log("user deleted", response);
-          toast.success("User deleted.", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: false,
-            progress: 0,
-            toastId: "my_toast",
-          });
-          fetchUsers();
-        })
-        .catch(function (error) {
-          toast.error(error.response.data.data.message, {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: false,
-            progress: 0,
-            toastId: "my_toast",
-          });
+      },
+    };
+    axios
+      .delete(`http://localhost:3002/api/users/${id}`, config)
+      .then(function (response) {
+        console.log("user deleted", response);
+        toast.success("User deleted.", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: 0,
+          toastId: "my_toast",
         });
-  }
+        fetchUsers();
+      })
+      .catch(function (error) {
+        toast.error(error.response.data.data.message, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: 0,
+          toastId: "my_toast",
+        });
+      });
+  };
 
   const fetchUsers = useCallback(
     (data?: any) => {

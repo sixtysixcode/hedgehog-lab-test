@@ -1,13 +1,15 @@
-import { ToastContainer, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import "../styles/auth.scss";
+
+import { Flip, ToastContainer } from "react-toastify";
+
+import HedgehogLogo from "./HedgehogLogo";
 import SignupForm from "./SignupForm";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import HedgehogLogo from "./HedgehogLogo";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const SignUp = () => {
   const navigate = useNavigate();

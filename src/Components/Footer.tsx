@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
 import "../styles/footer.scss";
-import { FaHeart, FaCode, FaGithub } from "react-icons/fa";
+
+import { FaCode, FaGithub, FaHeart } from "react-icons/fa";
+
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (

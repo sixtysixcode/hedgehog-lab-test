@@ -1,12 +1,13 @@
+import "../styles/auth.scss";
+
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import "../styles/auth.scss";
 
 interface SignupFormProps {
   onSubmit: (data: any) => void;
-    loading: boolean;
-    loginLink?: boolean;
+  loading: boolean;
+  loginLink?: boolean;
 }
 
 const SignupForm = ({ onSubmit, loading, loginLink }: SignupFormProps) => {
