@@ -5,6 +5,8 @@
   min-height: 5rem;
   padding: 1rem;
   color: $white;
+  position: fixed;
+  bottom: 0;
 
   p {
     gap: 5px;
@@ -21,8 +23,8 @@
 
 @media screen and (max-width: 600px) {
   .footer {
-  svg {
-    font-size: 1rem;
+    svg {
+      font-size: 1rem;
+    }
   }
-}
 }
