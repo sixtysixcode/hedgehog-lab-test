@@ -1,3 +1,25 @@
+# Welcome to my Hedgehog Lab Tech Test
+
+## Technologies
+
+### React with Typescript
+
+- I have some experience with Typescript, would love some specific feedback on any areas for improvement in regards to typing/interfaces etc.
+- Routes are under /pages, re-usable components are under /components.
+- I formatted the codebase using Prettier and formatted imports using the 'sort-imports' extension in VSCode.
+
+### SCSS for styling
+
+- I created \_utils.scss to hold theme colours/re-usable classes for common elements such as buttons/icons/fonts.
+- Component specific scss files we're created for additional styling.
+- I took hex codes from elements on the Hedgehog Lab website and applied them to elements within this project.
+- The application is fully responsive, achieved using a mixture of flexbox, rem values and media queries where necessary.
+
+### LocalStorage for holding Auth Token
+
+- I created a private route which relies on the existence of the token in LocalStorage.
+- This token is cleared on logout.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
