@@ -1,3 +1,5 @@
+import "../styles/table.scss";
+
 import { MdDelete } from "react-icons/md";
 
 interface UserInterface {
@@ -15,7 +17,7 @@ interface UserTableProps {
 
 const UserTable = ({ users, deleteUser }: UserTableProps) => {
   return (
-    <table>
+    <table className="table">
       <thead>
         <tr>
           <th>ID</th>
@@ -34,7 +36,7 @@ const UserTable = ({ users, deleteUser }: UserTableProps) => {
               <tr key={`user-${id}`}>
                 <td className="bold">{user.id}</td>
                 <td>
-                  <div className="home__body__image">
+                  <div className="circle-image">
                     <img src={user.display_picture} alt="User" />
                   </div>
                 </td>

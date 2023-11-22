@@ -22,55 +22,6 @@
       display: flex;
       justify-content: flex-end;
     }
-
-    &__image {
-      border-radius: 50%;
-      height: 4rem;
-      width: 4rem;
-      overflow: hidden;
-
-      img {
-        object-fit: cover;
-        object-position: center;
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    table {
-      margin: 2rem auto;
-      border-collapse: collapse;
-      width: 100%;
-
-      thead {
-        background: lighten($grey, 30%);
-
-        th {
-          height: 80px;
-        }
-      }
-
-      th,
-      td {
-        padding: 15px;
-      }
-
-      th {
-        text-align: left;
-        font-size: 1.2rem;
-        color: darken($grey, 20%);
-      }
-
-      td {
-        border-bottom: 1px solid $grey;
-        min-width: 2rem;
-        color: darken($grey, 20%);
-      }
-
-      tr:nth-child(even) {
-        background: lighten($grey, 30%);
-      }
-    }
   }
 
   &__modal {
