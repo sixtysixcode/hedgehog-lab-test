@@ -2,6 +2,13 @@
 
 ## Technologies
 
+### Packages Used
+
+- React Hook Form - https://react-hook-form.com/
+- React Icons - https://react-icons.github.io/react-icons/
+- React Modal - https://www.npmjs.com/package/react-modal
+- React Toastify - https://www.npmjs.com/package/react-toastify
+
 ### React with Typescript
 
 - I have some experience with Typescript, specific feedback on any areas for improvement in regards to typing/interfaces etc would be much appreciated.
