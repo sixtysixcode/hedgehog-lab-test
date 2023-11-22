@@ -46,7 +46,7 @@ const Home = () => {
     axios
       .post("http://localhost:3002/api/register", params)
       .then(function (response) {
-        toast.success("Registration successful.", {
+        toast.success("User created.", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: true,
