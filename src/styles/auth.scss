@@ -17,6 +17,10 @@
     gap: 1rem;
     padding: 3.5rem;
 
+    label {
+      width: min-content;
+    }
+
     &__col {
       display: flex;
       flex-direction: column;
@@ -26,6 +30,7 @@
     &__row {
       display: flex;
       justify-content: space-between;
+      gap: 10px;
     }
   }
 
@@ -72,6 +77,7 @@
 
     label {
       font-size: 0.8rem;
+      line-height: 1.5rem;
     }
   }
 }
