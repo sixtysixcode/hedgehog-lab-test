@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { PrivateRoute, PrivateRouteProps } from "./Auth/PrivateRoute";
 
-import Home from "./Pages/Home";
-import Login from "./Pages/Login";
-import SignUp from "./Pages/SignUp";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 const defaultPrivateRouteProps: Omit<PrivateRouteProps, "outlet"> = {
   authenticationPath: "/login",
